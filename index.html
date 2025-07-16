@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけん認識アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>じゃんけん認識アプリ</h1>
+
+        <div class="main-content">
+            <div class="left-column">
+                <div class="video-container">
+                    <video id="webcam" autoplay playsinline></video>
+                    <canvas id="canvas"></canvas>
+                </div>
+
+                <div class="controls">
+                    <button id="start-btn">カメラ開始</button>
+                    <button id="stop-btn" disabled>カメラ停止</button>
+                    <button id="play-btn" disabled>じゃんけんする！</button>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="game-info">
+                    <div class="result-container">
+                        <h2>あなたの手:</h2>
+                        <div id="gesture-result">準備中...</div>
+                    </div>
+
+                    <div class="computer-choice">
+                        <h2>コンピュータの手:</h2>
+                        <div id="computer-gesture">待機中...</div>
+                    </div>
+
+                    <div class="game-result">
+                        <h2>結果:</h2>
+                        <div id="game-result">ゲーム開始前</div>
+                    </div>
+
+                    <div class="countdown-container" id="countdown-container">
+                        <div class="countdown" id="countdown">3</div>
+                    </div>
+
+                    <div class="score-board">
+                        <h2>スコア:</h2>
+                        <div class="score">
+                            <span>あなた: <span id="player-score">0</span></span>
+                            <span>コンピュータ: <span id="computer-score">0</span></span>
+                        </div>
+                    </div>
+
+                    <div class="gesture-guide">
+                        <h3>認識可能なジェスチャー:</h3>
+                        <ul>
+                            <li>✊ グー（拳を作る）</li>
+                            <li>✌️ チョキ（人差し指と中指を立てる）</li>
+                            <li>🖐 パー（すべての指を広げる）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"></script>
+
+    <!-- MediaPipe Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1620248257/drawing_utils.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1620248257/camera_utils.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
